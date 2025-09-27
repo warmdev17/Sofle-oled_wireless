@@ -27,6 +27,36 @@
         };
     };
 
+    macros {
+        fpc: fpc {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp PRINTSCREEN>;
+            label = "FPC";
+        };
+
+        spc: spc {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(PRINTSCREEN)>;
+            label = "SPC";
+        };
+
+        fps: fps {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(PRINTSCREEN)>;
+            label = "FPS";
+        };
+
+        sps: sps {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(LS(PRINTSCREEN))>;
+            label = "SPS";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -41,11 +71,11 @@
             //               | GUI | ALT  | CTRL | LOWER|  ENTER |  | SPACE | RAISE| CTRL  | ALT   | GUI  |
 
             bindings = <
-&kp GRAVE     &kp N1  &kp N2      &kp N3    &kp N4         &kp N5                          &kp N6     &kp N7     &kp N8     &kp N9    &kp N0    &kp UNDERSCORE
-&kp CAPSLOCK  &kp Q   &kp W       &kp E     &kp R          &kp T                           &kp Y      &kp U      &kp I      &kp O     &kp P     &kp LEFT_BRACE
-&kp TAB       &kp A   &kp S       &kp D     &kp F          &kp G                           &kp H      &kp J      &kp K      &kp L     &kp SEMI  &kp SQT
-&kp LSHFT     &kp Z   &kp X       &kp C     &kp V          &kp B      &kp C_MUTE    &none  &kp N      &kp M      &kp COMMA  &kp DOT   &kp FSLH  &kp RSHFT
-                      &kp ESCAPE  &kp LWIN  &kp BACKSPACE  &kp ENTER  &mo 1         &mo 2  &kp SPACE  &kp RCTRL  &kp RGUI   &kp RALT
+&kp GRAVE     &kp N1  &kp N2    &kp N3    &kp N4  &kp N5                                     &kp N6         &kp N7  &kp N8     &kp N9    &kp N0    &kp UNDERSCORE
+&kp CAPSLOCK  &kp Q   &kp W     &kp E     &kp R   &kp T                                      &kp Y          &kp U   &kp I      &kp O     &kp P     &kp ESCAPE
+&kp TAB       &kp A   &kp S     &kp D     &kp F   &kp G                                      &kp H          &kp J   &kp K      &kp L     &kp SEMI  &kp SQT
+&kp LSHFT     &kp Z   &kp X     &kp C     &kp V   &kp B             &kp C_MUTE    &none      &kp N          &kp M   &kp COMMA  &kp DOT   &kp FSLH  &kp RSHFT
+                      &kp LALT  &kp LWIN  &mo 1   &kp LEFT_CONTROL  &kp ENTER     &kp SPACE  &kp BACKSPACE  &mo 2   &kp RGUI   &kp RALT
             >;
 
             sensor-bindings =
@@ -72,7 +102,9 @@
                       &trans     &trans       &trans    &trans     &trans    &trans  &trans     &trans    &trans           &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings =
+                <&inc_dec_kp C_VOL_DN C_VOL_UP>,
+                <&inc_dec_kp PG_UP PG_DN>;
         };
 
         raise_layer {
@@ -111,7 +143,7 @@
 &bt BT_CLR         &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4                               &kp W  &none  &none  &none  &none  &none
 &ext_power EP_TOG  &rgb_ug RGB_HUD  &rgb_ug RGB_HUI  &rgb_ug RGB_SAD  &rgb_ug RGB_SAI  &rgb_ug RGB_EFF                            &none  &none  &none  &none  &none  &none
 &none              &rgb_ug RGB_BRD  &rgb_ug RGB_BRI  &none            &none            &none                                      &none  &none  &none  &none  &none  &none
-&none              &none            &none            &none            &none            &none            &rgb_ug RGB_TOG    &none  &none  &none  &none  &none  &none  &none
+&none              &none            &none            &none            &spc             &fpc             &rgb_ug RGB_TOG    &none  &fps   &sps   &none  &none  &none  &none
                                     &none            &none            &none            &none            &none              &none  &none  &none  &none  &none
             >;
         };
