@@ -1,7 +1,7 @@
 layout: {zmk_keyboard: sofle}
 layers:
-  default: ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', _, CAPSLOCK, Q, W, E, R, T, Y, U, I, O, P, BACKSPACE, TAB, A, S, D, F, G, H, J, K, L, ;, '''',
-    LSHFT, Z, X, C, V, B, MUTE, '', N, M, ',', ., /, RSHFT, LALT, LWIN, lower, ENTER, LEFT CONTROL, ESC, SPACE, raise, RGUI, RALT]
+  default: ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', _, CAPSLOCK, Q, W, E, R, T, Y, U, I, O, P, ESC, TAB, A, S, D, F, G, H, J, K, L, ;, '''', LSHFT,
+    Z, X, C, V, B, MUTE, '', N, M, ',', ., /, RSHFT, LALT, LWIN, lower, ENTER, LEFT CONTROL, BACKSPACE, SPACE, raise, RGUI, RALT]
   lower:
   - {t: ▽, type: trans}
   - F1
